@@ -1,0 +1,50 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    
+    .group-logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .group-logo__text {
+            font-size: 24px;
+            font-weight: 500;
+            color: rgb(155, 118, 124);
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .group-avatar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .group-avatar__name {
+            font-size: 18px;
+
+            &:hover {
+                cursor: pointer;
+                opacity: 0.6;
+            }
+        }
+
+        .group-avatar__avatar {
+
+            img {
+                width: 46px;
+                height: 46px;
+                border-radius: 50%;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
