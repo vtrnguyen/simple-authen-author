@@ -6,6 +6,7 @@ import { catchError, map, tap } from "rxjs/operators";
 import { Observable, throwError } from "rxjs";
 import { jwtDecode } from "jwt-decode";
 import { isPlatformBrowser } from "@angular/common";
+import { DataService } from "./data.service";
 
 @Injectable({
     providedIn: 'root',
@@ -16,7 +17,8 @@ export class AuthService {
 
     constructor(
         @Inject(PLATFORM_ID) private platformId: Object,
-        private httpClient: HttpClient
+        private httpClient: HttpClient,
+        private dataService: DataService,
     ) { }
 
     login(userName: string, password: string): Observable<boolean> {
@@ -45,7 +47,7 @@ export class AuthService {
     }
 
     logout(): void {
-        localStorage.removeItem('user_infor');
+        this.removeLoginInfor();
     }
 
     register(): void {
@@ -54,6 +56,10 @@ export class AuthService {
 
     getTokenInfor(accessToken: string): any {
         return jwtDecode(accessToken);
+    }
+
+    removeLoginInfor(): void {
+        localStorage.removeItem('user_infor');
     }
 
     getDetailUserInfor(chooseType: string): boolean | number | string | null {

@@ -20,6 +20,34 @@
         }
     }
 
+    .group-navigation {
+        display: flex;
+        gap: 8px;
+
+        .navigation-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 40px;
+            font-size: 16px;
+
+            &:hover {
+                cursor: pointer;
+                background-color: pink;
+                transition-duration: 0.8s;
+            }
+        }
+
+        // .group-navigation__home {
+
+        // }
+
+        // .group-navigation__about {
+            
+        // }
+    }
+
     .group-avatar {
         display: flex;
         align-items: center;
@@ -44,6 +72,25 @@
                 &:hover {
                     cursor: pointer;
                 }
+            }
+        }
+
+        .group-avatar__logout {
+            display: flex;
+            gap: 8px;
+            padding: 8px 12px;
+            font-size: 14px;
+
+            // .group-avatar__logout--btn {
+
+            // }
+
+            // .group-avatar__logout--icon {
+
+            // }
+
+            &:hover {
+                cursor: pointer;
             }
         }
     }

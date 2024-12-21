@@ -1,5 +1,5 @@
 <div class="header-container">
-    <div class="group-logo" (click)="redirectToHomePage()">
+    <div class="group-logo" (click)="redirect('')">
         <div class="group-logo__logo">
             <img src="favicon.ico" alt="app-logo">
         </div>
@@ -8,12 +8,32 @@
         </div>
     </div>
 
+    <div class="group-navigation">
+        <div *ngIf="isAdmin" class="group-navigation__admin navigation-btn" (click)="redirect('admin')">
+            Admin
+        </div>
+
+        <div class="group-navigation__home navigation-btn" (click)="redirect('')">
+            Home
+        </div>
+
+        <div class="group-navigation__about navigation-btn" (click)="redirect('about')">
+            About
+        </div>
+    </div>
+
     <div class="group-avatar">
         <div class="group-avatar__name">
             Henry Vo
         </div>
         <div class="group-avatar__avatar">
-            <img src="images/avatar.jpg" alt="user-avatar" (click)="handleUserLogout()">
+            <img src="images/avatar.jpg" alt="user-avatar">
+        </div>
+        <div class="group-avatar__logout" (click)="handleUserLogout()">
+            <div class="group-avatar__logout--btn">Logout</div>
+            <div class="group-avatar__logout--icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
         </div>
     </div>
 </div>

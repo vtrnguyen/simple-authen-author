@@ -23,8 +23,13 @@ export class AuthService {
             throw new UnauthorizedException('Invalid credentials');
         }
 
-        let payload = { id: user.id, roleID: user.roleID, name: user.name };
+        let payload: object = { id: user.id, roleID: user.roleID, name: user.name };
+        let accessToken: string = await this.generateToken(payload);
 
-        return await this.jwtService.signAsync(payload);
+        return accessToken;
+    }
+
+    async generateToken(payload: object): Promise<string> {
+        return this.jwtService.signAsync(payload);
     }
 }

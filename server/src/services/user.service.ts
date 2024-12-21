@@ -18,7 +18,15 @@ export class UserService {
         })
     }
 
-    getAllUsers(): Promise<Users[]> {
+    handleGetAllUsers(): Promise<Users[]> {
         return this.userRepository.find();
+    }
+
+    handleGetUserByID(userID: number): Promise<Users> {
+        return this.userRepository.findOne({
+            where: {
+                id: userID,
+            },
+        });
     }
 }
